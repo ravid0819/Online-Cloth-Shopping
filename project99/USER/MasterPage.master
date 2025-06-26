@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="USER_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+    <head runat="server">
+    <title>Tech2etc Ecommerce Tutorial</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <section id="header">
+    <a href="#">
+        <img src="img/logo.png" class="logo" alt=""></a>
+                <div>
+    <ul id="navbar">
+        <li><a class="active" href="home_page.aspx">Home</a></li>
+        <li><a href="home_page.aspx#feature">Shop</a></li>
+        <li><a href="blog.aspx">Blog</a></li>
+        <li><a href="about.aspx">About</a></li>
+        <li><a href="contact.aspx">Contact</a></li>
+        <li id="lg-bag"><a runat="server" href="login_page.aspx" id="login" style="font-size: 18px;">Login &nbsp;<i class="fa-solid fa-right-to-bracket"></i></a></li>
+        
+    </ul>
+</div>
+<div id="mobile">
+    <a href="login_page.aspx"><i class="fa fa-login" style="font-size: 28px;"></i></a>
+    <!-- <i><a id="bar" href="#">&#9776;</a></i> -->
+    <a href="#" id="bar"><i class="fa-solid fa-list"></i></a>
+
+</div>
+            </section>
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+          <footer class="section-p1">
+      <div class="Col">
+              <img class="logo" src="img/logo.png" alt="">
+              <h4>Contect</h4>
+              <p><strong>Address:</strong>12 adarsh society meghraj road modasa</p>
+              <p><strong>phone:</strong>(+91) 7777 785992 / (+91) 001 9999 978</p>
+              <p><strong>Hours:</strong>10:00 - 06:00 , mon - sat</p>
+              <div class="follow">
+                      <h4>Follow Us</h4>
+                      <i class="fa fa-facebook-f"></i>
+                      <i class="fa fa-twitter"></i>
+                      <i class="fa fa-instagram"></i>
+                      <i class="fa fa-pinterest-p"></i>
+                      <i class="fa fa-youtube-play"></i>
+              </div>
+      </div>
+
+      <div class="col">
+          <h4>About</h4>
+          <a href="#">About us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Condition</a>
+          <a href="#">Contact</a>
+      </div>
+
+      <div class="col">
+          <h4>My Account</h4>
+          <a href="#">Sign in</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">View cart</a>
+          <a href="#">Track My Order</a>
+          <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+          <h4>Install App</h4>
+          <p>From App store or Google Play</p>
+          <div class="row">
+              <img src="img/pay/app.jpg" alt="">
+              <img src="img/pay/play.jpg" alt="">
+          </div>
+          <p>Secured Payment Gateway</p>
+          <img src="img/pay/pay.png" alt="">
+      </div>
+
+      <div class="copyright">
+          <p><i class="fa fa-copyright"></i> 2024 , Tech2 etc - Html Css Ecommerce Template</p>
+      </div>
+  </footer>
+    </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+
+public partial class brandList : System.Web.UI.Page
+{
+    SqlConnection con;
+    SqlCommand cmd;
+    SqlDataAdapter da;
+    DataSet ds;
+
+    private void mycon()
+    {
+        con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True\r\n");
+        con.Open();
+    }
+
+    private void loadBrand()
+    {
+        mycon();
+        cmd = new SqlCommand("select * from brand", con);
+        da = new SqlDataAdapter(cmd);
+        ds = new DataSet();
+        da.Fill(ds);
+
+        if(ds.Tables[0].Rows.Count > 0)
+        {
+            rpt1.DataSource = ds;
+            rpt1.DataBind();
+        }
+
+        con.Close();
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        loadBrand();
+    }
+
+    protected void rpt1_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        String id = e.CommandArgument.ToString();
+
+        mycon();
+        cmd = new SqlCommand("delete from brand where brand_id = @id",con);
+        cmd.Parameters.AddWithValue("@id", id);
+        cmd.ExecuteNonQuery();
+        con.Close();
+
+        loadBrand();
+        
+    }
+
+    
+}
